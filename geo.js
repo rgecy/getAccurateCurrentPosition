@@ -8,11 +8,11 @@ getAccurateCurrentPosition = function (geolocationSuccess, geolocationError, geo
 
     var checkLocation = function (position) {
         if (locationEventCount > 1) {
-			if (position.coords.accuracy < lastCheckedPosition.coords.accuracy)
-				lastCheckedPosition = position;
-		} else {
-			lastCheckedPosition = position;
-		}
+	    if (position.coords.accuracy < lastCheckedPosition.coords.accuracy)
+		lastCheckedPosition = position;
+	    } else {
+		lastCheckedPosition = position;
+	    }
         locationEventCount = locationEventCount + 1;
         // We ignore the first event unless it's the only one received because some devices seem to send a cached
         // location even when maxaimumAge is set to zero
