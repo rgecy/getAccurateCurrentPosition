@@ -1,4 +1,4 @@
-navigator.geolocation.getAccurateCurrentPosition = function (geolocationSuccess, geolocationError, geoprogress, options) {
+getAccurateCurrentPosition = function (geolocationSuccess, geolocationError, geoprogress, options) {
     var lastCheckedPosition,
         locationEventCount = 0,
         watchID,
@@ -7,7 +7,12 @@ navigator.geolocation.getAccurateCurrentPosition = function (geolocationSuccess,
     options = options || {};
 
     var checkLocation = function (position) {
-        lastCheckedPosition = position;
+        if (locationEventCount > 1) {
+			if (position.coords.accuracy < lastCheckedPosition.coords.accuracy)
+				lastCheckedPosition = position;
+		} else {
+			lastCheckedPosition = position;
+		}
         locationEventCount = locationEventCount + 1;
         // We ignore the first event unless it's the only one received because some devices seem to send a cached
         // location even when maxaimumAge is set to zero
