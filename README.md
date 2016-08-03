@@ -24,7 +24,7 @@ The following params also exist for getCurrentPosition() but are set for you in 
 <code>getAccurateCurrentPosition(onSuccess, onError, onProgress, 
                                                         {desiredAccuracy:20, maxWait:15000});</code>
 
-<strong>UPDATE: 8/2/16</strong> Removed navigator.geolocation from function name.  It caused problems in iOS when used with the cordova geolocation plugin. getAccurateCurrentPosition is not recognized by the geolocation plugin.
+<h3>UPDATE: 8/2/16</h3> Removed navigator.geolocation from function name.  It caused problems in iOS when used with the cordova geolocation plugin. getAccurateCurrentPosition is not recognized by the geolocation plugin.
 
 Translating the above options into english -- This will attempt to find the device location with an accuracy of at least 20 meters and attempt to achieve this accuracy for 15 seconds
 
